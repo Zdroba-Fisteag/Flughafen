@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 public class Flughafen {
@@ -12,8 +16,20 @@ public class Flughafen {
     public Flughafen() {
     }
 
-    public void importMitarbeiter() {
+    public void importMitarbeiter() throws IOException {
+        try (BufferedReader br = new BufferedReader(
+                new FileReader("mitarbeiter.csv"))) {
 
+            String zeile;
+
+            while ((zeile = br.readLine()) != null) {
+                String[] daten = zeile.split(";");
+                // Continue here
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void exportMitarbeiter() {
