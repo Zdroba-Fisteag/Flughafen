@@ -1,0 +1,100 @@
+@startuml
+
+enum Fluglinie {
+- AUA
+- RYR
+- WZZ
+- LHG
+}
+
+enum Lizenzart {
+- CPL
+- ATPL
+}
+
+class Flughafen #back:cyan|lightblue;header:yellow/orange {
+- ICAO_Code : String
+- Flüge : List<Flüge>
+- Flugzeuge : List<Flugzeuge>
++ Flughafen(ICAO_Code : String, Flüge : List<Flüge>, Flugzeuge : List<Flugzeuge>)
++ exportMitarbeiter() : void
++ importMitarbeiter() : void
++ equals() and hashCode()
+}
+
+class Flugzeug {
+- registrierung : String
+- typ : String
+- kapazität : int
+- reichweite : int
+- fluglinie : enum
++ Flugzeug(...) : Flugzeuge
++ Flugzeug() : Flugzeuge
++ set() und get()
++ reichweiteProPassagierUndGewicht() : int
+}
+
+abstract class Flugmitarbeiter {
+- name : String
+- alter : int
+- geschlecht : char
+- arbeit : String
+- gehalt : int
+- wochenstunden : int
++ Flugmitarbeiter(...) : Flugmitarbeiter
++ Flugmitarbeiter() : Flugmitarbeiter
++ durchschnittsVerdienstProStunde() : int
++ toCSVString() : String
++ get() und set()
+}
+
+abstract class Flugzeugpersonal {
+- fluglinie : enum
+- flugstunden/Woche : int
++ get() und set()
++ FlugZuteilung() : void
++ FlugstundenProTag() : int
+}
+
+abstract class Flughafenpersonal {
+- abteilung : String
+- position : String
++ get() und set()
+}
+
+class Außenpersonal {
+- führerscheinart : String
+- wagenarten : String
++ get() und set()
+}
+
+class Innenpersonal {
+- sicherheitstufe : int
++ get() und set()
+}
+
+class Pilot {
+- lizenzart : enum
+- pilotStufe : int
++ get() und set()
+}
+
+class Flugbegleitung {
+- stufe : int
+- ersteHilfeThreshold : boolean
++ get() und set()
+}
+
+exception FlughafenException {
++ FlughafenException(message : String)
+}
+
+Flughafen ---> Flugzeug
+Flughafen ---> Flugmitarbeiter
+Flugmitarbeiter <|-- Flugzeugpersonal
+Flugmitarbeiter <|-- Flughafenpersonal
+Flughafenpersonal <|-- Außenpersonal
+Flughafenpersonal <|-- Innenpersonal
+Flugzeugpersonal <|-- Pilot
+Flugzeugpersonal <|-- Flugbegleitung
+@enduml
