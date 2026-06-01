@@ -17,18 +17,13 @@ public class Flughafen {
     }
 
     public void importMitarbeiter() throws IOException {
-        try (BufferedReader br = new BufferedReader(
-                new FileReader("mitarbeiter.csv"))) {
-
-            String zeile;
-
-            while ((zeile = br.readLine()) != null) {
-                String[] daten = zeile.split(";");
-                // Continue here
+        try (BufferedReader reader = new BufferedReader(new FileReader("mitarbeiter.csv"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
             }
-
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error reading file: " + e.getMessage());
         }
     }
 
