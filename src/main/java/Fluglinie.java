@@ -1,0 +1,20 @@
+public enum Fluglinie {
+    AEE,
+    EIN,
+    AEZ,
+    AFL,
+    AUA,
+    RYR,
+    WZZ,
+    IBE,
+    TAP,
+    DLH,
+    LOT,
+    DJT,
+    KLM,
+    IBS,
+    FIN,
+    EWG,
+    ANE,
+    SWR
+}
