@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 public class Flughafen {
@@ -27,8 +24,15 @@ public class Flughafen {
         }
     }
 
-    public void exportMitarbeiter() {
-
+    public void exportMitarbeiter(String vorname, String nachname, int alter, double gehalt) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("mitarbeiter.csv", true))) {
+            bw.write(vorname + ";" + nachname + ";" + alter + ";" + gehalt);
+            bw.newLine();
+            System.out.println("Mitarbeiter wurde erfolgreich gespeichert.");
+        } catch (IOException e) {
+            System.out.println("Fehler beim Schreiben in die Datei.");
+            e.printStackTrace();
+        }
     }
 
     @Override
