@@ -14,7 +14,6 @@ enum Lizenzart {
 
 class Flughafen #back:cyan|lightblue;header:yellow/orange {
 - ICAO_Code : String
-- Flüge : List<Flüge>
 - Flugzeuge : List<Flugzeuge>
 + Flughafen(ICAO_Code : String, Flüge : List<Flüge>, Flugzeuge : List<Flugzeuge>)
 + exportMitarbeiter() : void

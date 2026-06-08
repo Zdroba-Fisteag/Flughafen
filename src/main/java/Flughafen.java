@@ -23,7 +23,7 @@ public class Flughafen {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
+            System.out.println("Fehler beim Einlesen der Datei mitarbeiter.csv: " + e.getMessage());
         }
     }
 

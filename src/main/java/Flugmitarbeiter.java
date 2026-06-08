@@ -1,4 +1,2 @@
-package PACKAGE_NAME;
-
-public class Flugmitarbeiter {
+public abstract class Flugmitarbeiter {
 }
